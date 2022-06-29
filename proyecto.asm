@@ -1,18 +1,13 @@
-title convert from hexadecimal to binary
+title conversion hexadecimal a binario
 dosseg
 .model small
 .stack 100h
 .data
 
 msgstar		db 0dh,0ah,0dh,0ah,"*******************************************************************************",0dh,0ah,"$"
-msgintro	db "                                 PROGRAM FUNCTION",0dh,0ah,
-				   "                      TO CONVERT HEXADECIMAL NUMBER INTO BINARY NUMBER","$"
-msginput	db  0dh,0ah,"Your HEXADECIMAL INPUT (MAXIMUM FF) :",0dh,0ah,"$"
-msgafter	db 	0dh,0ah,"Your INPUT AFTER CONVERT INTO BINARY : ",0dh,0ah,"$"
-msgagain	db	0dh,0ah,0dh,0ah,"DO YOU WANT TO TRY AGAIN ?",0dh,0ah,"PRESS (y OR Y) TO TRY AGAIN,PRESS OTHER KEY TO TERMINATE:",0dh,0ah,"$"
-msgmax		db	0dh,0ah,0dh,0ah,"YOUR INPUT HAD REACH MAXIMUM 8 DIGITS / BIT , CALCULATION WILL START NOW",0dh,0ah,"$"
-blank		db	0dh,0ah,"$"
-error		db  0dh,0ah,"INVALID INPUT, ONLY 1 AND 0 IS ALLOW. PROGRAM WILL TERMINATE NOW.",0dh,0ah,"$"
+msgintro	db "                                     PROGRAMA",0dh,0ah,
+				   "                    CONVERSION DE UN CARACTER HEXADECIMAL A BINARIO","$"
+msginput	db  0dh,0ah,"Input deL HEXADECIMAL(MAXIMO FF) :",0dh,0ah,"$"
 print		dw	0
 count		dw	0
 num		dw	0
@@ -26,29 +21,29 @@ main	proc
 		mov bx,0
 		mov cx,0
 		mov dx,0
-		mov print,0	; reset evrything used in program to makesure the calculation will be correct
+		mov print,0	; resetear todos los valores del programa para asegurarse que el cáclculo sea correcto
 
-		mov count,0	; after user request repeat
+		mov count,0	; despues que el usuario desee repetir el proceso
 		mov num,0
 		
-		mov dx,offset msgstar ;display start (decoration)
+		mov dx,offset msgstar ;mostrar en pantalla mensaje de inicio
 		mov ah,9
 		int 21h
 		
-		mov dx,offset msgintro ;display intro message
+		mov dx,offset msgintro ;mostrar en pantalla mensaje de inicio
 		mov ah,9
 		int 21h
 		
-		mov dx,offset msgstar ;display start (decoration)
+		mov dx,offset msgstar ;mostrar en pantalla mensaje de inicio
 		mov ah,9
 		int 21h
 		
 		
-		mov	dx,offset msginput ;display input message
+		mov	dx,offset msginput ;mostrar en pantalla el mensaje de input
 		mov ah,9
 		int 21h
 		
-		mov cx,-1 ; assign -1 into cx to act as counter
+		mov cx,-1 ; asignar -1 a cx para que actue como contador
 		
 	
 
